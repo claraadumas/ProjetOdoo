@@ -1,0 +1,4 @@
+url = http://localhost:8069
+db = ProjetOdoo
+username = armand.michaud@hotmail.com
+password = arbre1001
