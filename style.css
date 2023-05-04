@@ -1,0 +1,150 @@
+/* CSS pour le site web de gestion de tickets */
+
+/* Styles pour le corps de la page */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Styles pour le titre de la page */
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Styles pour le menu de navigation */
+  nav {
+    background-color: #398efd;
+    color: #fff;
+  }
+  
+  nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  nav li {
+    padding: 1rem;
+  }
+  
+  nav a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  nav a:hover {
+    color: #ddd;
+  }
+  
+  /* Styles pour les tableaux */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  
+  table th, table td {
+    border: 1px solid #ddd;
+    padding: 0.5rem;
+  }
+  
+  table th {
+    background-color: #8dc0ff;
+    text-align: left;
+    font-weight: normal;
+  }
+  
+  /* Styles pour les formulaires */
+  form label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  form input, form textarea {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    margin-bottom: 1rem;
+  }
+  
+  form textarea {
+    height: 6rem;
+    padding: 10px 20px;
+  }
+  
+  form input[type="submit"] {
+    background-color: #2cb5ff;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    cursor: pointer;
+  }
+  
+  form input[type="submit"]:hover {
+    background-color: #388ff8;
+  }
+  
+  /* Styles pour les messages d'erreur */
+  .error {
+    background-color: #f2dede;
+    border: 1px solid #ebccd1;
+    color: #a94442;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Styles pour les messages de succès */
+  .success {
+    background-color: #dff0d8;
+    border: 1px solid #d6e9c6;
+    color: #3c763d;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+  }
+    /* Centre le formulaire */
+    form {
+        margin: 0 auto;
+        max-width: 600px;
+      }
+/* Style le bouton du formulaire */
+input[type="submit"] {
+    margin-top: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+/* Centre le titre de chaque page */
+h1 {
+    text-align: center;
+  }
+/* Styles pour le footer */
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+	background-color: #ddd;
+	color: #666;
+	font-size: 12px;
+	padding: 5px;
+  text-align: center;
+  
+}
+main {
+  padding-bottom: 100px;
+}
+
