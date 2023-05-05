@@ -20,12 +20,10 @@ def removeendline(value):
 
 
 
-
-
-
-def recuperation_ticket():
-    ##permet la récupération des tickets. Enlève les fin de ligne s'il y en a
-    res=models.execute_kw(db, uid, password, 'helpdesk.ticket', 'search_read', [], {'fields': ['number', 'name', 'description','partner_name','partner_email'] })
+def chercher_ticket(tic):
+    ##permet la récupération des tickets avec conditions
+    
+    res=models.execute_kw(db, uid, password, 'helpdesk.ticket', 'search_read',[[['name', '=', tic]]], {'fields': ['number', 'name', 'description','partner_name','partner_email'] })
 
     for ticket in res :
         if ticket['name'] != False :
@@ -39,6 +37,31 @@ def recuperation_ticket():
         
 
         print("-nom du ticket : ", ticket['name'])
+        print("nom du demandeur : ", ticket['partner_name'])
+        print("email du demandeur : ", ticket['partner_email'])
+        print("description de la demande :", ticket['description'])
+        
+        print("")
+       
+
+
+def recuperation_ticket():
+    ##permet la récupération des tickets. Enlève les fin de ligne s'il y en a 
+    tic = 'Unticket'
+    res=models.execute_kw(db, uid, password, 'helpdesk.ticket', 'search_read',[], {'fields': ['number', 'name', 'description','partner_name','partner_email'] })
+
+    for ticket in res :
+        if ticket['name'] != False :
+            ticket['name']=removeendline(ticket['name'])
+        if ticket['partner_name'] != False :
+            ticket['partner_name']=removeendline(ticket['partner_name'])
+        if ticket['partner_email'] != False :
+            ticket['partner_email']=removeendline(ticket['partner_email'])
+        if ticket['description'] != False :
+            ticket['description']=removeendline(ticket['description'])
+        
+
+        print("-id : ", ticket['name'])
         print("nom du demandeur : ", ticket['partner_name'])
         print("email du demandeur : ", ticket['partner_email'])
         print("description de la demande :", ticket['description'])
@@ -81,6 +104,8 @@ try:
             creation_ticket(sys.argv[2],description,sys.argv[3],sys.argv[4])
         elif sys.argv[1]=='recup_ticket':
             recuperation_ticket()
+        elif sys.argv[1]=='chercher_ticket':
+            chercher_ticket(sys.argv[2])
         
 except:
     print("erreur de connexion")      
