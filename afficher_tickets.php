@@ -10,6 +10,7 @@
         <ul>
           <li><a href="index.php">Accueil</a></li>
           <li><a href="ajout_ticket.php">Ajouter un ticket</a></li>
+          <li><a href="recherche_ticket.php">Rechercher les tickets</a></li>
           <li><a href="afficher_tickets.php">Afficher les tickets</a></li>
         </ul>
       </nav>

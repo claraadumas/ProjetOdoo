@@ -10,6 +10,7 @@
         <ul>
           <li><a href="index.php">Accueil</a></li>
           <li><a href="ajout_ticket.php">Ajouter un ticket</a></li>
+          <li><a href="recherche_ticket.php">Rechercher les tickets</a></li>
           <li><a href="afficher_tickets.php">Afficher les tickets</a></li>
         </ul>
       </nav>
@@ -48,7 +49,7 @@
               <input type="text" id="prenom" name="prenom" required><br>
               <label for="email">Adresse email :</label>
               <input type="email" id="email" name="email" required><br>
-              <label for="nomticket">Nom du ticket :</label>
+              <label for="nomticket">Id ticket :</label>
               <input type="text" id="nomticket" name="nomticket" required><br>
               <label for="description">Description du problème :</label><br>
               <textarea id="description" name="description" rows="5" cols="50" required></textarea><br>
