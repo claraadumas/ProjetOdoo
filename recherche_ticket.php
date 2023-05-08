@@ -30,16 +30,43 @@
         
    
 
+        $file = 'Odoo/data.json'; 
+        $ecritureBDD = array('ticket' => $nomticket);
+        file_put_contents('Odoo/data.json', json_encode($ecritureBDD));
 
-        $arg = $nomticket;
-        $output = shell_exec("C:/Users/arman/AppData/Local/Microsoft/WindowsApps/python3.9.exe Odoo/ticket.py ".'chercher_ticket '.$arg);
+
+        $output = shell_exec("C:/Users/arman/AppData/Local/Microsoft/WindowsApps/python3.9.exe Odoo/ticketCopie.py ".'chercher_ticket');
         echo $output; 
+        // mettre le contenu du fichier dans une variable
+        $data = file_get_contents($file); 
+        $tickets = json_decode($data);
 
-
-
+        if (count($tickets) > 0) {
+          echo '<table>';
+          echo '<thead><tr><th>ID Odoo</th><th>Ticket ID</th><th>Prénom Nom</th><th>Email</th><th>Description</th></tr></thead>';
+          echo '<tbody>';
+          foreach ($tickets as $ticket) {
+            echo '<tr>';
+            echo '<td>' . $ticket->number . '</td>';
+            echo '<td>' . $ticket->name . '</td>';
+            echo '<td>' . $ticket->partner_name . '</td>';
+            echo '<td>' . $ticket->partner_email . '</td>';
+            echo '<td>' . $ticket->description . '</td>';
+            echo '</tr>'; 
+          }
+          echo '</tbody>';
+          echo '</table>';
 
         // Affichage d'un message de confirmation
-        echo "<p>Le ticket a été ajouté avec succès !</p>";
+        echo "<p>Le ticket a bien été récupéré !</p>";
+
+        } else {
+          echo '<p>Aucun ticket à afficher pour le moment.</p>';
+        }
+
+
+
+
       } else {
         // Affichage du formulaire d'ajout de ticket
         echo '

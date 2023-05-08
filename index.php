@@ -16,6 +16,7 @@
       </nav>
     </header>
     <main>
+      
       <h1>Bienvenue sur le site de gestion de tickets</h1>
       <p>Cliquez sur "Ajouter un ticket" pour ajouter un nouveau ticket ou sur "Afficher les tickets" pour retrouver les tickets existant.
     <br>

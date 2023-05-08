@@ -27,11 +27,13 @@
           $description = $_POST["description"];
 
           
-          file_put_contents("Odoo/commentaire.txt", $description);
+          ##file_put_contents("Odoo/commentaire.txt", $description);
+          $file = 'Odoo/data.json'; 
+          $ecritureBDD = array('nom' => $nom, 'prenom' => $prenom, 'email' => $email,'nomticket' => $nomticket,'description' =>$description);
+	        file_put_contents('Odoo/data.json', json_encode($ecritureBDD));
 
-
-			    $arg = $nomticket." ".$prenom."_".$nom." ".$email;
-			    $output = shell_exec("C:/Users/arman/AppData/Local/Microsoft/WindowsApps/python3.9.exe Odoo/ticket.py ".'create_ticket '.$arg);
+			    
+			    $output = shell_exec("C:/Users/arman/AppData/Local/Microsoft/WindowsApps/python3.9.exe Odoo/ticketCopie.py ".'create_ticket');
           echo $output; 
 			
 

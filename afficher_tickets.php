@@ -19,9 +19,38 @@
       <h1>Afficher les tickets</h1>
       <?php
 
-        $output = shell_exec("C:/Users/arman/AppData/Local/Microsoft/WindowsApps/python3.9.exe Odoo/ticket.py ".'recup_ticket ');
-
+        $output = shell_exec("C:/Users/arman/AppData/Local/Microsoft/WindowsApps/python3.9.exe Odoo/ticketCopie.py ".'recup_ticket ');
         echo $output;
+        
+        $file = 'Odoo/data.json'; 
+
+
+
+        // mettre le contenu du fichier dans une variable
+        $data = file_get_contents($file); 
+
+        // décoder le flux JSON
+        $tickets = json_decode($data);
+
+        if (count($tickets) > 0) {
+          echo '<table>';
+          echo '<thead><tr><th>ID Odoo</th><th>Ticket ID</th><th>Prénom Nom</th><th>Email</th><th>Description</th></tr></thead>';
+          echo '<tbody>';
+          foreach ($tickets as $ticket) {
+            echo '<tr>';
+            echo '<td>' . $ticket->number . '</td>';
+            echo '<td>' . $ticket->name . '</td>';
+            echo '<td>' . $ticket->partner_name . '</td>';
+            echo '<td>' . $ticket->partner_email . '</td>';
+            echo '<td>' . $ticket->description . '</td>';
+            echo '</tr>'; 
+          }
+          echo '</tbody>';
+          echo '</table>';
+        } else {
+          echo '<p>Aucun ticket à afficher pour le moment.</p>';
+        }
+        
 
         
       ?>
